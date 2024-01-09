@@ -5,14 +5,7 @@ const multerSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    // media: {
-    //     type: String,
-    //     required: true
-    // },
-    // video: {
-    //     type: String,
-    //     required: true
-    // }
+   
     },
   { timestamps: true }
 );

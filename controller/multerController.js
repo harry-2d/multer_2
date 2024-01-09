@@ -1,4 +1,3 @@
-const multer = require("multer");
 const Multer = require("../Model/Multer");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ErrorHandler = require("../utils/errorHandler");
@@ -12,14 +11,14 @@ exports.postImage = catchAsyncErrors( async(req, res, next) => {
     if(!req.files.image) {
         res.status(400).json({
             success: false,
-            message: "Image uploaded"
+            message: "Image are required"
         });
     }
 
     req.body.image = req.files.image[0].filename;
     const multer = await new Multer(req.body).save();
 
-    res.status(400).json({
+    res.status(200).json({
         success: true,
         message: "Image added Successfully",
         data: multer
@@ -39,3 +38,5 @@ exports.getAllImage = catchAsyncErrors( async(req, res, next) => {
         data: image
     });
 });
+
+
