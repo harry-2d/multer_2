@@ -4,7 +4,7 @@ const ErrorHandler = require("../utils/errorHandler");
 
 //adding new images
 exports.postImage = catchAsyncErrors( async(req, res, next) => {
-    if(req.files == undefined) {
+    if(req.files.image == undefined) {
         return next(new ErrorHandler("Invalid Image", 401));
     }
 

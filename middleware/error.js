@@ -37,18 +37,6 @@ module.exports = (err, req, res, next) => {
       error = new ErrorHandler(message, 400);
     }
 
-    //Handling JsonWebTokenError
-    if (err.name === "JsonWebTokenError") {
-      const message = "Invalid Token. Try Again!!";
-      error = new ErrorHandler(message, 401);
-    }
-
-    //Handling TokenExpiredError
-    if (err.name === "TokenExpiredError") {
-      const message = "Token Expired. Please Login Again!!";
-      error = new ErrorHandler(message, 401);
-    }
-
     //Any Other Error
     res.status(error.statusCode).json({
       success: false,

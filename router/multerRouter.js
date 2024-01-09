@@ -1,8 +1,6 @@
 const express = require("express");
 const imageUpload = require("../middleware/imageUpload");
 const { postImage, getAllImage} = require("../controller/multerController");
-const videoUpload = require("../middleware/videoUpload");
-const { postVideo } = require("../controller/videoController");
 const router = express.Router();
 
 router

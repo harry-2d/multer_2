@@ -2,8 +2,6 @@ const Video = require("../Model/Video");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ErrorHandler = require("../utils/errorHandler");
 
-
-
 //adding new videos
 exports.postVideo = catchAsyncErrors( async( req, res, next) => {
     if(req.files == undefined) {
@@ -12,7 +10,7 @@ exports.postVideo = catchAsyncErrors( async( req, res, next) => {
 
     if(!req.files.video) {
         res.status(400).json({
-            success:true,
+            success: true,
             message: "video files are required"
         });
     }
@@ -21,8 +19,8 @@ exports.postVideo = catchAsyncErrors( async( req, res, next) => {
     const video = await new Video(req.body).save();
 
     res.status(200).json({
-        success:true,
+        success: true,
         message: "Video uploaded Successfully",
-        data:video, 
+        data: video, 
     });
 });
