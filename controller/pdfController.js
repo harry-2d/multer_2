@@ -27,3 +27,25 @@ exports.postPdf = catchAsyncErrors( async(req, res, next) => {
         data: pdf
     })
 });
+
+//getting all pdf files
+exports.getAllPdf = catchAsyncErrors( async( req, res, next) => {
+    const pdf = await Pdf.find();
+
+    res.status(200).json({
+        success: true,
+        message: "All pdf files fetched",
+        data: pdf
+    });
+});
+
+//getOnepdf
+exports.getOnePdf = catchAsyncErrors( async(req, res, next) => {
+    const pdf = await Pdf.findById(req.params.id);
+
+    res.status(200).json({
+        success: true,
+        message: "Single pdf file fetched",
+        data: pdf
+    });
+});

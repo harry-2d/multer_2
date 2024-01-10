@@ -1,6 +1,6 @@
 const express = require("express");
 const videoUpload = require("../middleware/videoUpload");
-const { postVideo } = require("../controller/videoController");
+const { postVideo, getAllVideos, getOneVideo } = require("../controller/videoController");
 const router = express.Router();
 
 
@@ -13,4 +13,17 @@ router
         postVideo
     );
 
+router
+    .route("/getAllVideo")
+    .get(
+        getAllVideos
+    )
+ 
+router
+    .route("/getOneVideo/:id")
+    .get(
+        getOneVideo
+    )
+
+    
 module.exports = router;    

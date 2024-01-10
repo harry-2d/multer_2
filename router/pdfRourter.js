@@ -1,6 +1,6 @@
 const express = require("express");
 const pdfUpload = require("../middleware/pdfUpload");
-const { postPdf } = require("../controller/pdfController");
+const { postPdf, getAllPdf, getOnePdf } = require("../controller/pdfController");
 const router = express.Router();
 
 router
@@ -12,4 +12,15 @@ router
         postPdf
     )
 
+router
+    .route("/getAllPdf")
+    .get(
+        getAllPdf
+    )
+
+router
+    .route("/getOnePdf/:id")
+    .get(
+        getOnePdf
+    )
 module.exports = router;

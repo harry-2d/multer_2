@@ -24,3 +24,25 @@ exports.postVideo = catchAsyncErrors( async( req, res, next) => {
         data: video, 
     });
 });
+
+//getting all videos
+exports.getAllVideos = catchAsyncErrors( async(req, res, next) => {
+    const video = await Video.find();
+
+    res.status(200).json({
+        success: true,
+        message: "all videos fetched",
+        data: video 
+    });
+})
+
+//getting single video by id
+exports.getOneVideo = catchAsyncErrors( async(req, res, next) => {
+    const video = await Video.findById(req.params.id);
+
+    res.status(200).json({
+        success:true,
+        message: "Single Video Fetched",
+        data: video
+    })
+})
